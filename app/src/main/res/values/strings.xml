@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TT2</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_ejercicios">Ejercicios</string>
+    <string name="nav_recompensas">Recompensas</string>
+    <string name="nav_nube">Nube</string>
+    <string name="nav_perfil">perfil</string>
+    <string name="regresar">Regresar</string>
+    <string name="recompensas">Recompensas</string>
+    <string name="personajes_desbloqueados">Personajes desbloqueados</string>
+    <string name="dinosaurio_1">Dinosaurio 1</string>
+    <string name="completa_10_ejercicios_para_desbloquearlo">Completa 10 ejercicios para desbloquearlo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
