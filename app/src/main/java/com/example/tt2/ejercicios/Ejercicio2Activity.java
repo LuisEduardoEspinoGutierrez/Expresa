@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Ejercicio6Activity extends AppCompatActivity {
+public class Ejercicio2Activity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
     private int aciertos = 0;
@@ -32,13 +32,13 @@ public class Ejercicio6Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ejercicio6);
+        setContentView(R.layout.activity_ejercicio2);
 
         // Flecha regresar
         ImageView ivRegresar = findViewById(R.id.ivRegresar);
         ivRegresar.setOnClickListener(v -> finish());
 
-        reproducirAudio(R.raw.r_instrucciones_ejercicio6);
+        reproducirAudio(R.raw.r_instrucciones_ejercicio2);
 
         GridLayout grid = findViewById(R.id.gridImagenes);
         ImageView zonaR = findViewById(R.id.zonaR);

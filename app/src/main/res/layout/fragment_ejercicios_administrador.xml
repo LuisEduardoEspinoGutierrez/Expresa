@@ -17,28 +17,69 @@
         android:layout_marginBottom="30dp" />
 
     <Button
-        android:id="@+id/btnEjercicio6"
+        android:id="@+id/btnEjercicio2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ir a Ejercicio 6"
+        android:text="Ir a Ejercicio 2"
         android:backgroundTint="#4CAF50"
         android:textColor="@android:color/white"
         android:padding="15dp" />
 
     <Button
-        android:id="@+id/btnEjercicio7"
+        android:id="@+id/btnEjercicio3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ir a Ejercicio 7"
+        android:text="Ir a Ejercicio 3"
         android:backgroundTint="#4CAF50"
         android:textColor="@android:color/white"
-        android:padding="15dp" />
+        android:padding="15dp"
+        android:layout_marginTop="10dp" />
 
     <Button
-        android:id="@+id/btnEjercicio8"
+        android:id="@+id/btnEjercicio4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ir a Ejercicio 8"
+        android:text="Ir a Ejercicio 4"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@android:color/white"
+        android:padding="15dp"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnEjercicio7_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir a Ejercicio 7.1"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@android:color/white"
+        android:padding="15dp"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnEjercicio7_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir a Ejercicio 7.2"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@android:color/white"
+        android:padding="15dp"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnEjercicio7_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir a Ejercicio 7.3"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@android:color/white"
+        android:padding="15dp"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnEjercicio7_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir a Ejercicio 7.4"
         android:backgroundTint="#4CAF50"
         android:textColor="@android:color/white"
         android:padding="15dp"

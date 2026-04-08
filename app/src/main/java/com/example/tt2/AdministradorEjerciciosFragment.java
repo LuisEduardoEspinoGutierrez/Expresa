@@ -12,9 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.tt2.ejercicios.Ejercicio6Activity;
-import com.example.tt2.ejercicios.Ejercicio7Activity;
-import com.example.tt2.ejercicios.Ejercicio8Activity;
+import com.example.tt2.ejercicios.Ejercicio2Activity;
+import com.example.tt2.ejercicios.Ejercicio3Activity;
+import com.example.tt2.ejercicios.Ejercicio4Activity;
+import com.example.tt2.ejercicios.Ejercicio7_1Activity;
+import com.example.tt2.ejercicios.Ejercicio7_2Activity;
+import com.example.tt2.ejercicios.Ejercicio7_3Activity;
+import com.example.tt2.ejercicios.Ejercicio7_4Activity;
 
 public class AdministradorEjerciciosFragment extends Fragment {
 
@@ -37,22 +41,45 @@ public class AdministradorEjerciciosFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button btnEjercicio6 = view.findViewById(R.id.btnEjercicio6);
-        Button btnEjercicio7 = view.findViewById(R.id.btnEjercicio7);
-        Button btnEjercicio8 = view.findViewById(R.id.btnEjercicio8);
-        
-        btnEjercicio6.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), Ejercicio6Activity.class);
+        Button btnEjercicio2 = view.findViewById(R.id.btnEjercicio2);
+        Button btnEjercicio3 = view.findViewById(R.id.btnEjercicio3);
+        Button btnEjercicio4 = view.findViewById(R.id.btnEjercicio4);
+        Button btnEjercicio7_1 = view.findViewById(R.id.btnEjercicio7_1);
+        Button btnEjercicio7_2 = view.findViewById(R.id.btnEjercicio7_2);
+        Button btnEjercicio7_3 = view.findViewById(R.id.btnEjercicio7_3);
+        Button btnEjercicio7_4 = view.findViewById(R.id.btnEjercicio7_4);
+
+        btnEjercicio2.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Ejercicio2Activity.class);
             startActivity(intent);
         });
 
-        btnEjercicio7.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), Ejercicio7Activity.class);
+        btnEjercicio3.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Ejercicio3Activity.class);
             startActivity(intent);
         });
 
-        btnEjercicio8.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), Ejercicio8Activity.class);
+        btnEjercicio4.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Ejercicio4Activity.class);
+            startActivity(intent);
+        });
+
+        btnEjercicio7_1.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Ejercicio7_1Activity.class);
+            startActivity(intent);
+        });
+
+        btnEjercicio7_2.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Ejercicio7_2Activity.class);
+            startActivity(intent);
+        });
+
+        btnEjercicio7_3.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Ejercicio7_3Activity.class);
+            startActivity(intent);
+        });
+        btnEjercicio7_4.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Ejercicio7_4Activity.class);
             startActivity(intent);
         });
     }

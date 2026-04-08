@@ -18,13 +18,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TT2">
         <activity
-            android:name=".ejercicios.Ejercicio8Activity"
+            android:name=".ejercicios.Ejercicio7_4Activity"
             android:exported="false" />
         <activity
-            android:name=".ejercicios.Ejercicio7Activity"
+            android:name=".ejercicios.Ejercicio7_3Activity"
             android:exported="false" />
         <activity
-            android:name=".ejercicios.Ejercicio6Activity"
+            android:name=".ejercicios.Ejercicio7_2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ejercicios.Ejercicio7_1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ejercicios.Ejercicio4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ejercicios.Ejercicio3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ejercicios.Ejercicio2Activity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

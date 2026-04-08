@@ -33,7 +33,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 
-public class Ejercicio7Activity extends AppCompatActivity {
+public class Ejercicio3Activity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer; 
     MediaRecorder recorder;
@@ -46,7 +46,7 @@ public class Ejercicio7Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_ejercicio7);
+        setContentView(R.layout.activity_ejercicio3);
 
         // 🔐 Configurar lanzador de permisos
         requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
@@ -84,7 +84,7 @@ public class Ejercicio7Activity extends AppCompatActivity {
 
         // BOTÓN ESCUCHAR INSTRUCCIONES
         Button btnAudio = findViewById(R.id.btnAudioInstrucciones);
-        mediaPlayer = MediaPlayer.create(this, R.raw.r_instrucciones_ejercicio7);
+        mediaPlayer = MediaPlayer.create(this, R.raw.r_instrucciones_ejercicio3);
         btnAudio.setOnClickListener(v -> {
             if (mediaPlayer != null) {
                 if (mediaPlayer.isPlaying()) {
@@ -114,7 +114,7 @@ public class Ejercicio7Activity extends AppCompatActivity {
 
     private void startRecording() {
         try {
-            File file = new File(getExternalFilesDir(null), "audio_ejercicio7.3gp");
+            File file = new File(getExternalFilesDir(null), "audio_ejercicio3.3gp");
             filePath = file.getAbsolutePath();
 
             recorder = new MediaRecorder();
@@ -165,7 +165,7 @@ public class Ejercicio7Activity extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
         Uri file = Uri.fromFile(fileObj);
-        StorageReference ref = storageRef.child("ejercicios/ej7_audio_" + System.currentTimeMillis() + ".3gp");
+        StorageReference ref = storageRef.child("ejercicios/ej3_audio_" + System.currentTimeMillis() + ".3gp");
 
         Toast.makeText(this, "Subiendo audio...", Toast.LENGTH_SHORT).show();
 
@@ -173,11 +173,11 @@ public class Ejercicio7Activity extends AppCompatActivity {
                 .addOnSuccessListener(taskSnapshot -> {
                     ref.getDownloadUrl().addOnSuccessListener(uri -> {
                         Toast.makeText(this, " Audio subido correctamente", Toast.LENGTH_LONG).show();
-                        Log.d("EJERCICIO_7", "URL: " + uri.toString());
+                        Log.d("EJERCICIO_3", "URL: " + uri.toString());
                     });
                 })
                 .addOnFailureListener(e -> {
-                    Log.e("EJERCICIO_7", "Error al subir", e);
+                    Log.e("EJERCICIO_3", "Error al subir", e);
                     Toast.makeText(this, " Error al subir: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
     }
