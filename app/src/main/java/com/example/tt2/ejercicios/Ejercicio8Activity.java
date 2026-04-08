@@ -33,9 +33,9 @@ import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 
-public class Ejercicio7Activity extends AppCompatActivity {
+public class Ejercicio8Activity extends AppCompatActivity {
 
-    MediaPlayer mediaPlayer; 
+    MediaPlayer mediaPlayer;
     MediaRecorder recorder;
     String filePath;
     private ActivityResultLauncher<String> requestPermissionLauncher;
@@ -46,9 +46,9 @@ public class Ejercicio7Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_ejercicio7);
+        setContentView(R.layout.activity_ejercicio8);
 
-        // 🔐 Configurar lanzador de permisos
+        //  Configurar lanzador de permisos
         requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (isGranted) {
                 startRecording();
@@ -70,7 +70,7 @@ public class Ejercicio7Activity extends AppCompatActivity {
 
         // TEXTO CON RESALTADO DE "r"
         TextView tvLectura = findViewById(R.id.tvLectura);
-        String texto = "Teresa es una niña que está todo el tiempo cuidando un tesoro que le regaló su abuela al morir. El tesoro no es una caja de oro, tampoco un montón de dinero. El tesoro es un corazón de color morado, donde Teresa guarda todos los recuerdos que le dejó su querida abuela al partir.";
+        String texto = "Raúl pega la cara a la ventana del ferrocarril. Mira cómo una mariposa intenta detenerse en un girasol mientras el viento la empuja y queda atrapada en la tela de una araña. Cerca de la estación, un carro ya lo está esperando. Se levanta y corre para bajar del tren, lleva en su mano un arete que encontró en el asiento, con la prisa, se le cae e intenta como un rayo sostenerlo en el aire, pero no lo logra: alcanza a golpearlo y el arete sale disparado, vuela por el aire y cae dentro de un barril lleno de agua sucia. Raúl, decepcionado, sube al auto mientras escucha cómo las ruedas del ferrocarril avanzan lentamente hasta perderse en el horizonte.";
         SpannableString spannable = new SpannableString(texto);
 
         for (int i = 0; i < texto.length(); i++) {
@@ -84,6 +84,7 @@ public class Ejercicio7Activity extends AppCompatActivity {
 
         // BOTÓN ESCUCHAR INSTRUCCIONES
         Button btnAudio = findViewById(R.id.btnAudioInstrucciones);
+        // Usamos el audio de instrucciones del ejercicio 7 ya que el 8 no existe aún en raw y suelen ser las mismas
         mediaPlayer = MediaPlayer.create(this, R.raw.r_instrucciones_ejercicio7);
         btnAudio.setOnClickListener(v -> {
             if (mediaPlayer != null) {
@@ -114,7 +115,7 @@ public class Ejercicio7Activity extends AppCompatActivity {
 
     private void startRecording() {
         try {
-            File file = new File(getExternalFilesDir(null), "audio_ejercicio7.3gp");
+            File file = new File(getExternalFilesDir(null), "audio_ejercicio8.3gp");
             filePath = file.getAbsolutePath();
 
             recorder = new MediaRecorder();
@@ -165,7 +166,7 @@ public class Ejercicio7Activity extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
         Uri file = Uri.fromFile(fileObj);
-        StorageReference ref = storageRef.child("ejercicios/ej7_audio_" + System.currentTimeMillis() + ".3gp");
+        StorageReference ref = storageRef.child("ejercicios/ej8_audio_" + System.currentTimeMillis() + ".3gp");
 
         Toast.makeText(this, "Subiendo audio...", Toast.LENGTH_SHORT).show();
 
@@ -173,11 +174,11 @@ public class Ejercicio7Activity extends AppCompatActivity {
                 .addOnSuccessListener(taskSnapshot -> {
                     ref.getDownloadUrl().addOnSuccessListener(uri -> {
                         Toast.makeText(this, " Audio subido correctamente", Toast.LENGTH_LONG).show();
-                        Log.d("EJERCICIO_7", "URL: " + uri.toString());
+                        Log.d("EJERCICIO_8", "URL: " + uri.toString());
                     });
                 })
                 .addOnFailureListener(e -> {
-                    Log.e("EJERCICIO_7", "Error al subir", e);
+                    Log.e("EJERCICIO_8", "Error al subir", e);
                     Toast.makeText(this, " Error al subir: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
     }

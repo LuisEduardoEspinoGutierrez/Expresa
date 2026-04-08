@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TT2">
         <activity
+            android:name=".ejercicios.Ejercicio8Activity"
+            android:exported="false" />
+        <activity
             android:name=".ejercicios.Ejercicio7Activity"
             android:exported="false" />
         <activity

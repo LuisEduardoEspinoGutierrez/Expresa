@@ -34,4 +34,14 @@
         android:textColor="@android:color/white"
         android:padding="15dp" />
 
+    <Button
+        android:id="@+id/btnEjercicio8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir a Ejercicio 8"
+        android:backgroundTint="#4CAF50"
+        android:textColor="@android:color/white"
+        android:padding="15dp"
+        android:layout_marginTop="10dp" />
+
 </LinearLayout>

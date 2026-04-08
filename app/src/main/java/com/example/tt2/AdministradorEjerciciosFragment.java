@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.example.tt2.ejercicios.Ejercicio6Activity;
 import com.example.tt2.ejercicios.Ejercicio7Activity;
+import com.example.tt2.ejercicios.Ejercicio8Activity;
 
 public class AdministradorEjerciciosFragment extends Fragment {
 
@@ -38,6 +39,7 @@ public class AdministradorEjerciciosFragment extends Fragment {
 
         Button btnEjercicio6 = view.findViewById(R.id.btnEjercicio6);
         Button btnEjercicio7 = view.findViewById(R.id.btnEjercicio7);
+        Button btnEjercicio8 = view.findViewById(R.id.btnEjercicio8);
         
         btnEjercicio6.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), Ejercicio6Activity.class);
@@ -46,6 +48,11 @@ public class AdministradorEjerciciosFragment extends Fragment {
 
         btnEjercicio7.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), Ejercicio7Activity.class);
+            startActivity(intent);
+        });
+
+        btnEjercicio8.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), Ejercicio8Activity.class);
             startActivity(intent);
         });
     }
