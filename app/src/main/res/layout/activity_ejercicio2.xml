@@ -1,64 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    android:padding="12dp">
+    android:orientation="vertical"
+    android:background="#F5F7FA"
+    tools:context=".ejercicios.Ejercicio2Activity">
 
-    <!-- BOTÓN REGRESAR -->
-    <ImageView
-        android:id="@+id/ivRegresar"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/back"
-        android:padding="8dp"
-        android:contentDescription="Regresar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!-- BARRA SUPERIOR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#38A9F5"
+        android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/tvInstrucciones"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Arrastra las imágenes que empiezan con 'R'"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#333333"
-        android:gravity="center"
-        android:layout_marginStart="8dp"
-        app:layout_constraintTop_toTopOf="@id/ivRegresar"
-        app:layout_constraintBottom_toBottomOf="@id/ivRegresar"
-        app:layout_constraintStart_toEndOf="@id/ivRegresar"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <ImageView
+            android:id="@+id/ivRegresar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/back"
+            android:contentDescription="@string/regresar"
+            android:clickable="true"
+            android:focusable="true"/>
 
-    <!-- ZONA DE DROP (LETRA R) -->
-    <ImageView
-        android:id="@+id/zonaR"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:src="@drawable/r"
-        android:padding="12dp"
-        android:background="@android:color/white"
-        android:elevation="4dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/tvInstrucciones"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/regresar"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
 
-    <!-- GRID DE IMÁGENES (4 Columnas) -->
-    <GridLayout
-        android:id="@+id/gridImagenes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="4"
-        android:alignmentMode="alignMargins"
-        android:columnOrderPreserved="false"
-        android:useDefaultMargins="true"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/zonaR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ejercicio de la Letra R"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- TARJETA INSTRUCCIONES -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Instrucciones"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#38A9F5"/>
+
+                        <Button
+                            android:id="@+id/btnAudioInstrucciones"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Escuchar"
+                            android:textAllCaps="false"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:drawableStart="@android:drawable/ic_media_play"
+                            android:drawablePadding="6dp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="8dp"
+                            android:backgroundTint="#FF9800"
+                            app:cornerRadius="20dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Arrastra las imágenes que empiezan con 'R' hacia la letra central."
+                        android:textSize="16sp"
+                        android:textColor="#555555"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginTop="6dp"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ZONA DE DROP (LETRA R) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                app:cardCornerRadius="80dp"
+                app:cardElevation="6dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:id="@+id/zonaR"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/r"
+                    android:scaleType="centerInside"
+                    android:padding="30dp"
+                    android:background="#FFFFFF"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- GRID DE IMÁGENES -->
+            <GridLayout
+                android:id="@+id/gridImagenes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="4"
+                android:alignmentMode="alignMargins"
+                android:columnOrderPreserved="false"
+                android:useDefaultMargins="true"
+                android:animateLayoutChanges="true"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -10,6 +10,10 @@
     <string name="personajes_desbloqueados">Personajes desbloqueados</string>
     <string name="dinosaurio_1">Dinosaurio 1</string>
     <string name="completa_10_ejercicios_para_desbloquearlo">Completa 10 ejercicios para desbloquearlo</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="sopa_de_letras">Sopa de Letras</string>
+    <string name="escuchar_instrucciones">Escuchar instrucciones</string>
+    <string name="instrucciones_ejercicio10">Encuentra las palabras deslizando tu dedo sobre ellas.</string>
+    <string name="palabras_ejercicio10">Palabras: tractor, trompa, trompeta, matrimonio...</string>
 </resources>

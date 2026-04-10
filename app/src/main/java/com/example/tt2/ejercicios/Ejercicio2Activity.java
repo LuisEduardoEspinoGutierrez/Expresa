@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -38,7 +39,10 @@ public class Ejercicio2Activity extends AppCompatActivity {
         ImageView ivRegresar = findViewById(R.id.ivRegresar);
         ivRegresar.setOnClickListener(v -> finish());
 
-        reproducirAudio(R.raw.r_instrucciones_ejercicio2);
+        // Botón Audio Instrucciones
+        Button btnAudioInstrucciones = findViewById(R.id.btnAudioInstrucciones);
+        btnAudioInstrucciones.setOnClickListener(v -> reproducirAudio(R.raw.r_instrucciones_ejercicio2));
+
 
         GridLayout grid = findViewById(R.id.gridImagenes);
         ImageView zonaR = findViewById(R.id.zonaR);
@@ -79,11 +83,11 @@ public class Ejercicio2Activity extends AppCompatActivity {
                 View view = (View) event.getLocalState();
                 boolean esCorrecta = (boolean) view.getTag();
                 if (esCorrecta) {
-                    view.setVisibility(View.INVISIBLE);
+                    grid.removeView(view); // Usamos removeView para que se active animateLayoutChanges
                     aciertos++;
                     reproducirAudio(R.raw.muy_bien);
                     if (aciertos == TOTAL_CORRECTAS) {
-                        Toast.makeText(this, "¡Felicidades!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "¡Felicidades! Has terminado el ejercicio", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     reproducirAudio(R.raw.intentalo_otra_vez);
