@@ -7,6 +7,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import java.util.*;
 
+/**
+ * Vista genérica para una Sopa de Letras de 12x12.
+ */
 public class SopaDeLetrasView extends View {
 
     private final int rows = 12;
@@ -54,27 +57,16 @@ public class SopaDeLetrasView extends View {
 
         foundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         foundPaint.setColor(Color.parseColor("#804CAF50"));
-
-        loadGrid();
     }
 
-    private void loadGrid() {
-        // Rediseño a 12x12 para que las letras sean mucho más grandes en móvil
-        String[] template = {
-                "TRICICLOXXXX", // 0
-                "TRENZATRONCO", // 1
-                "RXTRENXXXTXX", // 2
-                "UXTROFEOXRTX", // 3
-                "CXXXXXXXXERS", // 4
-                "HXTRACTORSEA", // 5
-                "AXTROMPAXNBS", // 6
-                "XMATRIMONIOT", // 7
-                "ESTRELLAXXLR", // 8
-                "TROMPETAXXXE", // 9
-                "MAESTRAXXXXX", // 10
-                "XXXXXXXXXXXX"  // 11
-        };
-
+    /**
+     * Configura el tablero con una plantilla y la lista de palabras.
+     * @param template Array de Strings de 12x12. 'X' se reemplaza por letras aleatorias.
+     * @param wordsList Lista de objetos Word con las coordenadas de las palabras.
+     */
+    public void setBoard(String[] template, List<Word> wordsList) {
+        if (template == null || template.length != rows) return;
+        
         grid = new char[rows][cols];
         Random random = new Random();
         for (int r = 0; r < rows; r++) {
@@ -87,30 +79,9 @@ public class SopaDeLetrasView extends View {
                 }
             }
         }
-
-        words.clear();
-        // Horizontales
-        add("TRICICLO", 0, 0, 0, 7);
-        add("TRENZA", 1, 0, 1, 5);
-        add("TRONCO", 1, 6, 1, 11);
-        add("TREN", 2, 2, 2, 5);
-        add("TROFEO", 3, 2, 3, 7);
-        add("TRACTOR", 5, 2, 5, 8);
-        add("TROMPA", 6, 2, 6, 7);
-        add("MATRIMONIO", 7, 1, 7, 10);
-        add("ESTRELLA", 8, 0, 8, 7);
-        add("TROMPETA", 9, 0, 9, 7);
-        add("MAESTRA", 10, 0, 10, 6);
-
-        // Verticales
-        add("TRUCHA", 1, 0, 6, 0);
-        add("TRES", 2, 9, 5, 9);
-        add("TREBOL", 3, 10, 8, 10);
-        add("SASTRE", 4, 11, 9, 11);
-    }
-
-    private void add(String w, int sr, int sc, int er, int ec) {
-        words.add(new Word(w, sr, sc, er, ec));
+        this.words = wordsList;
+        this.found.clear();
+        invalidate();
     }
 
     public void setOnWordFoundListener(OnWordFoundListener l) {
@@ -128,6 +99,8 @@ public class SopaDeLetrasView extends View {
     @Override
     protected void onDraw(Canvas c) {
         super.onDraw(c);
+        if (grid == null) return;
+
         c.drawRect(offsetX, offsetY, offsetX + cols * cellSize, offsetY + rows * cellSize, cellPaint);
 
         for (int i : found) {
@@ -168,6 +141,8 @@ public class SopaDeLetrasView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {
+        if (grid == null) return false;
+
         float x = e.getX();
         float y = e.getY();
         int col = (int) ((x - offsetX) / cellSize);
@@ -215,10 +190,10 @@ public class SopaDeLetrasView extends View {
         }
     }
 
-    private static class Word {
+    public static class Word {
         String word;
         int sr, sc, er, ec;
-        Word(String w, int sr, int sc, int er, int ec) {
+        public Word(String w, int sr, int sc, int er, int ec) {
             this.word = w; this.sr = sr; this.sc = sc; this.er = er; this.ec = ec;
         }
     }

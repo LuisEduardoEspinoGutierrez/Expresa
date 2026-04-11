@@ -12,7 +12,7 @@ import com.google.android.material.chip.ChipGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ejercicio10Activity extends AppCompatActivity {
+public class Ejercicio11Activity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
     private ChipGroup chipGroupPalabras;
@@ -22,7 +22,7 @@ public class Ejercicio10Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ejercicio10);
+        setContentView(R.layout.activity_ejercicio11);
 
         ImageView ivRegresar = findViewById(R.id.ivRegresar);
         Button btnAudio = findViewById(R.id.btnAudioInstrucciones);
@@ -35,6 +35,7 @@ public class Ejercicio10Activity extends AppCompatActivity {
 
         ivRegresar.setOnClickListener(v -> finish());
 
+        // El audio de las instrucciones usa el mismo que el del ejercicio 10
         btnAudio.setOnClickListener(v ->
                 playAudio(R.raw.r_instrucciones_ejercicio10));
 
@@ -51,40 +52,41 @@ public class Ejercicio10Activity extends AppCompatActivity {
     }
 
     private void setupSopa(SopaDeLetrasView sopa) {
+        // Tablero 12x12
         String[] template = {
-                "TRICICLOXXXX",
-                "TRENZATRONCO",
-                "RXTRENXXXTXX",
-                "UXTROFEOXRTX",
-                "CXXXXXXXXERS",
-                "HXTRACTORSEA",
-                "AXTROMPAXNBS",
-                "XMATRIMONIOT",
-                "ESTRELLAXXLR",
-                "TROMPETAXXXE",
-                "MAESTRAXXXXX",
-                "XXXXXXXXXXXX"
+                "FRAMBUESAXXF", // 0
+                "FRASCOXXXXXR", // 1
+                "XXXXXXFRIO_U".replace('_', 'X'), // 2  -> Col 11: U
+                "FRESAXXXXXXT", // 3  -> Col 11: T
+                "XXXXXXFRUTAE", // 4  -> Col 11: E
+                "COFREFRAUDER", // 5  -> Col 11: R
+                "REFRESCOXXFO", // 6  -> Col 11: O (Fin de FRUTERO) y Col 10: F (Inicio de FROTAR)
+                "DISFRAZXXXRX", // 7  -> Col 10: R
+                "AFRICAXXXXOX", // 8  -> Col 10: O
+                "FRENTEXXXXTX", // 9  -> Col 10: T
+                "FRACCIONXXAX", // 10 -> Col 10: A
+                "FRANELAXXXRX"  // 11 -> Col 10: R (Fin de FROTAR)
         };
 
         List<SopaDeLetrasView.Word> words = new ArrayList<>();
         // Horizontales
-        words.add(new SopaDeLetrasView.Word("TRICICLO", 0, 0, 0, 7));
-        words.add(new SopaDeLetrasView.Word("TRENZA", 1, 0, 1, 5));
-        words.add(new SopaDeLetrasView.Word("TRONCO", 1, 6, 1, 11));
-        words.add(new SopaDeLetrasView.Word("TREN", 2, 2, 2, 5));
-        words.add(new SopaDeLetrasView.Word("TROFEO", 3, 2, 3, 7));
-        words.add(new SopaDeLetrasView.Word("TRACTOR", 5, 2, 5, 8));
-        words.add(new SopaDeLetrasView.Word("TROMPA", 6, 2, 6, 7));
-        words.add(new SopaDeLetrasView.Word("MATRIMONIO", 7, 1, 7, 10));
-        words.add(new SopaDeLetrasView.Word("ESTRELLA", 8, 0, 8, 7));
-        words.add(new SopaDeLetrasView.Word("TROMPETA", 9, 0, 9, 7));
-        words.add(new SopaDeLetrasView.Word("MAESTRA", 10, 0, 10, 6));
+        words.add(new SopaDeLetrasView.Word("FRAMBUESA", 0, 0, 0, 8));
+        words.add(new SopaDeLetrasView.Word("FRASCO", 1, 0, 1, 5));
+        words.add(new SopaDeLetrasView.Word("FRIO", 2, 6, 2, 9));
+        words.add(new SopaDeLetrasView.Word("FRESA", 3, 0, 3, 4));
+        words.add(new SopaDeLetrasView.Word("FRUTA", 4, 6, 4, 10));
+        words.add(new SopaDeLetrasView.Word("COFRE", 5, 0, 5, 4));
+        words.add(new SopaDeLetrasView.Word("FRAUDE", 5, 5, 5, 10));
+        words.add(new SopaDeLetrasView.Word("REFRESCO", 6, 0, 6, 7));
+        words.add(new SopaDeLetrasView.Word("DISFRAZ", 7, 0, 7, 6));
+        words.add(new SopaDeLetrasView.Word("AFRICA", 8, 0, 8, 5));
+        words.add(new SopaDeLetrasView.Word("FRENTE", 9, 0, 9, 5));
+        words.add(new SopaDeLetrasView.Word("FRACCION", 10, 0, 10, 7));
+        words.add(new SopaDeLetrasView.Word("FRANELA", 11, 0, 11, 6));
 
         // Verticales
-        words.add(new SopaDeLetrasView.Word("TRUCHA", 1, 0, 6, 0));
-        words.add(new SopaDeLetrasView.Word("TRES", 2, 9, 5, 9));
-        words.add(new SopaDeLetrasView.Word("TREBOL", 3, 10, 8, 10));
-        words.add(new SopaDeLetrasView.Word("SASTRE", 4, 11, 9, 11));
+        words.add(new SopaDeLetrasView.Word("FRUTERO", 0, 11, 6, 11));
+        words.add(new SopaDeLetrasView.Word("FROTAR", 6, 10, 11, 10));
 
         sopa.setBoard(template, words);
     }
@@ -100,7 +102,8 @@ public class Ejercicio10Activity extends AppCompatActivity {
     }
 
     private void playWordAudio(String word) {
-        String resourceName = "tr_" + word.toLowerCase();
+        // El nombre del recurso es fr_palabra (ej: fr_frasco)
+        String resourceName = "fr_" + word.toLowerCase();
         int resId = getResources().getIdentifier(resourceName, "raw", getPackageName());
 
         if (resId != 0) {

@@ -93,7 +93,17 @@
             android:id="@+id/btnEjercicio10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ir a Ejercicio 10 (Sopa de Letras)"
+            android:text="Ir a Ejercicio 10 (Sopa de Letras TR)"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"
+            android:padding="15dp"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/btnEjercicio11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ir a Ejercicio 11 (Sopa de Letras FR)"
             android:backgroundTint="#4CAF50"
             android:textColor="@android:color/white"
             android:padding="15dp"
