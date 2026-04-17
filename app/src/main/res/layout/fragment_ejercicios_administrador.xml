@@ -109,5 +109,15 @@
             android:padding="15dp"
             android:layout_marginTop="10dp" />
 
+        <Button
+            android:id="@+id/btnEjercicio15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ir a Ejercicio 15 (Clasificación R)"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"
+            android:padding="15dp"
+            android:layout_marginTop="10dp" />
+
     </LinearLayout>
 </ScrollView>
